@@ -42,7 +42,7 @@ const SearchScreen = ({ route, navigation }: any) => {
           renderItem={({ item, index }) => (
             <SubMovieCard
               movie={item}
-              cardFunction={() => navigation.push('MovieDetails')}
+              cardFunction={() => navigation.push('MovieDetails', { id: item.id })}
               cardWidth={width / 2 - SPACING.space_12 * 2}
               isFirst={index === 0}
               isLast={index === searchList.length - 1}

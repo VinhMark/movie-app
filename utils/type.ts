@@ -13,6 +13,17 @@ export type Movie = {
   key: string | undefined;
 };
 
+export interface MovieDetail extends Movie {
+  genres: Genres[];
+  runtime: number;
+  tagline: string;
+}
+
+export type Genres = {
+  id: number;
+  name: string;
+};
+
 export type Cast = {
   adult: boolean;
   gender: number;
@@ -21,7 +32,7 @@ export type Cast = {
   name: string;
   original_name: string;
   popularity: number;
-  profile_path: number;
+  profile_path: string;
   cast_id: number;
   character: string;
   credit_id: string;

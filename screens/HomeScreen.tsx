@@ -69,6 +69,7 @@ const HomeScreen = ({ navigation }: any) => {
       let tempUpcomingMoviesList = await getUpcomingMoviesList();
       setUpcomingMoviesList([...tempUpcomingMoviesList.results]);
     })();
+
     const endTime = performance.now();
     console.log('Time loading data : ', endTime - startTime);
   }, []);
@@ -79,21 +80,22 @@ const HomeScreen = ({ navigation }: any) => {
 
   if (!nowPlayingMoviesList && !popularMoviesList && !upcomingMoviesList) {
     return (
-      <ScrollView
-        style={styles.container}
-        bounces={false}
-        contentContainerStyle={styles.scrollViewContainer}
-      >
-        <StatusBar hidden />
+      <SafeAreaView>
+        <ScrollView
+          style={styles.container}
+          bounces={false}
+          contentContainerStyle={styles.scrollViewContainer}
+        >
+          <StatusBar backgroundColor={COLOR.Black} />
+          <View style={styles.inputHeaderContainer}>
+            <InputHeader searchFunction={handleSearch} />
+          </View>
 
-        <View style={styles.inputHeaderContainer}>
-          <InputHeader searchFunction={handleSearch} />
-        </View>
-
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size={'large'} color={COLOR.Orange} />
-        </View>
-      </ScrollView>
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size={'large'} color={COLOR.Orange} />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     );
   }
 

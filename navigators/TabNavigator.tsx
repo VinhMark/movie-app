@@ -1,12 +1,13 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
-import TicketScreen from '../screens/TicketScreen';
 import { COLOR, FONTSIZE, SPACING } from '../theme/theme';
 import { StyleSheet, View } from 'react-native';
 import { Octicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
+import AccountScreen from '../screens/AccountScreen';
+import TestScreen from '../screens/TestScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -57,7 +58,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name='Ticket'
-        component={TicketScreen}
+        component={TestScreen}
         options={{
           tabBarShowLabel: false,
           tabBarIcon: ({ focused, color, size }) => {
@@ -77,7 +78,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name='user'
-        component={TicketScreen}
+        component={AccountScreen}
         options={{
           tabBarShowLabel: false,
           tabBarIcon: ({ focused, color, size }) => {

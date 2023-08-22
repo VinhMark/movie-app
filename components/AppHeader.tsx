@@ -5,17 +5,16 @@ import { BORDER_RADIUS, COLOR, FONTSIZE, FONT_FAMILY, SPACING } from '../theme/t
 import { Movie } from '../utils/type';
 
 interface AppHeaderProps {
-  movie: Movie;
   header: string;
   action: () => void;
 }
 
-const AppHeader = ({ movie, header, action }: AppHeaderProps) => {
+const AppHeader = ({ header, action }: AppHeaderProps) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.iconStyle} onPress={() => action()}>
         <AntDesign
-          name='closecircleo'
+          name='close'
           size={FONTSIZE.size_20}
           color={COLOR.White}
           style={{ padding: 7 }}
@@ -35,6 +34,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: SPACING.space_10,
   },
   iconStyle: {
     backgroundColor: COLOR.Orange,
@@ -52,5 +52,6 @@ const styles = StyleSheet.create({
   emptyContainer: {
     height: SPACING.space_20 * 2,
     width: SPACING.space_20 * 2,
+    // backgroundColor: COLOR.White,
   },
 });

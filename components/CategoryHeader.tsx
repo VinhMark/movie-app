@@ -15,9 +15,10 @@ export default CategoryHeader;
 const styles = StyleSheet.create({
   text: {
     fontFamily: FONT_FAMILY.poppins_semibold,
-    fontSize: FONTSIZE.size_20,
+    fontSize: FONTSIZE.size_24,
     color: COLOR.White,
-    paddingHorizontal: SPACING.space_36,
-    paddingTop: SPACING.space_28,
+    paddingHorizontal: SPACING.space_28,
+    marginBottom: SPACING.space_18,
+    marginTop: SPACING.space_36,
   },
 });

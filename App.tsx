@@ -1,5 +1,3 @@
-import { StyleSheet } from 'react-native';
-import React, { useCallback } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import TabNavigator from './navigators/TabNavigator';
@@ -7,6 +5,7 @@ import MovieDetailsScreen from './screens/MovieDetailsScreen';
 import SeatBookingScreen from './screens/SeatBookingScreen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useFonts } from 'expo-font';
+import TestScreen from './screens/TestScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,7 +31,7 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen
-            name='Tab'
+            name='Tabs'
             component={TabNavigator}
             options={{ animation: 'slide_from_right' }}
           />
@@ -44,14 +43,21 @@ const App = () => {
           <Stack.Screen
             name='SeatBooking'
             component={SeatBookingScreen}
-            options={{ animation: 'slide_from_left' }}
+            options={{ animation: 'slide_from_right' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
+      {/* <NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen
+            name='Tab'
+            component={TestScreen}
+            options={{ animation: 'slide_from_right' }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer> */}
     </SafeAreaProvider>
   );
 };
 
 export default App;
-
-const styles = StyleSheet.create({});

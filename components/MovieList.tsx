@@ -36,6 +36,6 @@ export default MovieList;
 
 const styles = StyleSheet.create({
   containerGap36: {
-    gap: SPACING.space_36,
+    gap: SPACING.space_32,
   },
 });
