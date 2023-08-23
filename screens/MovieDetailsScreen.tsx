@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BORDER_RADIUS, COLOR, FONTSIZE, FONT_FAMILY, SPACING } from '../theme/theme';
 import { Cast, MovieDetail } from '../utils/type';
 import { movieCastDetails, movieDetails } from '../api/apiCalls';
@@ -20,6 +20,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { AntDesign } from '@expo/vector-icons';
 import { Genres } from '../utils/type';
 import CategoryHeader from '../components/CategoryHeader';
+import { StatusBar } from 'expo-status-bar';
 
 const getMovie = async (id: number) => {
   try {
@@ -46,6 +47,7 @@ const getMovieCast = async (id: number) => {
 const MovieDetailsScreen = ({ navigation, route }) => {
   const [movie, setMovie] = useState<MovieDetail | undefined>(undefined);
   const [movieCast, setMovieCast] = useState<Cast[] | undefined>(undefined);
+  const insets = useSafeAreaInsets();
 
   const toHourAndMinute = (time: number): string => {
     const hours = Math.floor(time / 60);
@@ -75,6 +77,7 @@ const MovieDetailsScreen = ({ navigation, route }) => {
   return (
     <SafeAreaView edges={['bottom', 'left', 'right']}>
       <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={styles.container}>
+        <StatusBar backgroundColor={'transparent'} style='inverted' />
         <View>
           <ImageBackground
             source={{
@@ -83,8 +86,8 @@ const MovieDetailsScreen = ({ navigation, route }) => {
             style={styles.imgBackground}
           >
             <LinearGradient colors={[COLOR.BlackRGB10, COLOR.Black]} style={styles.linearGradient}>
-              <View style={styles.appHeaderContainer}>
-                <AppHeader header='' action={() => navigation.goBack()} />
+              <View style={[styles.appHeaderContainer, { paddingTop: insets.top }]}>
+                <AppHeader header={movie.title} action={() => navigation.goBack()} />
               </View>
             </LinearGradient>
           </ImageBackground>
@@ -168,7 +171,10 @@ const MovieDetailsScreen = ({ navigation, route }) => {
           {/* Button */}
           <TouchableOpacity
             onPress={() => {
-              navigation.push('SeatBooking', { bgImage: movie.backdrop_path });
+              navigation.push('SeatBooking', {
+                bgImage: movie.backdrop_path,
+                posterImage: movie.poster_path,
+              });
             }}
             style={styles.buttonSelect}
           >
@@ -198,7 +204,7 @@ const styles = StyleSheet.create({
   },
   imgBackground: {
     width: '100%',
-    aspectRatio: 16 / 8,
+    aspectRatio: 21 / 12,
   },
   linearGradient: {
     height: '100%',

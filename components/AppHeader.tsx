@@ -12,6 +12,12 @@ interface AppHeaderProps {
 const AppHeader = ({ header, action }: AppHeaderProps) => {
   return (
     <View style={styles.container}>
+      <View style={styles.emptyContainer}></View>
+
+      <Text numberOfLines={1} style={styles.headerText}>
+        {header}
+      </Text>
+
       <TouchableOpacity style={styles.iconStyle} onPress={() => action()}>
         <AntDesign
           name='close'
@@ -20,9 +26,6 @@ const AppHeader = ({ header, action }: AppHeaderProps) => {
           style={{ padding: 7 }}
         />
       </TouchableOpacity>
-
-      <Text style={styles.headerText}>{header}</Text>
-      <View style={styles.emptyContainer}></View>
     </View>
   );
 };

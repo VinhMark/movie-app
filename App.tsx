@@ -5,7 +5,6 @@ import MovieDetailsScreen from './screens/MovieDetailsScreen';
 import SeatBookingScreen from './screens/SeatBookingScreen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useFonts } from 'expo-font';
-import TestScreen from './screens/TestScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,19 +42,10 @@ const App = () => {
           <Stack.Screen
             name='SeatBooking'
             component={SeatBookingScreen}
-            options={{ animation: 'slide_from_right' }}
+            options={{ animation: 'fade_from_bottom' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
-      {/* <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen
-            name='Tab'
-            component={TestScreen}
-            options={{ animation: 'slide_from_right' }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer> */}
     </SafeAreaProvider>
   );
 };

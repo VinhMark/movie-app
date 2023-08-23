@@ -8,6 +8,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import AccountScreen from '../screens/AccountScreen';
 import TestScreen from '../screens/TestScreen';
+import TicketScreen from '../screens/TicketScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -58,7 +59,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name='Ticket'
-        component={TestScreen}
+        component={TicketScreen}
         options={{
           tabBarShowLabel: false,
           tabBarIcon: ({ focused, color, size }) => {

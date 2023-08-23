@@ -86,7 +86,7 @@ const HomeScreen = ({ navigation }: any) => {
           bounces={false}
           contentContainerStyle={styles.scrollViewContainer}
         >
-          <StatusBar backgroundColor={COLOR.Black} />
+          <StatusBar hidden />
           <View style={styles.inputHeaderContainer}>
             <InputHeader searchFunction={handleSearch} />
           </View>

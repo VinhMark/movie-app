@@ -38,3 +38,15 @@ export type Cast = {
   credit_id: string;
   order: number;
 };
+
+interface DateTicket {
+  date: number;
+  day: string;
+}
+
+export type Ticket = {
+  seatArray: number[];
+  time: string;
+  date: DateTicket;
+  ticketImage: string;
+};
